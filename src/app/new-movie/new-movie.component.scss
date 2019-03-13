@@ -1,0 +1,36 @@
+.create-page {
+
+  padding: 20px 200px;
+
+.breadcrumb {
+  color: #8d8d8d;
+  background-color: #cfe9f0;
+}
+
+  .page-content {
+    background-color: #FFF;
+
+
+    .create-form {
+      padding: 20px;
+
+
+      .submit-button-container {
+        justify-content: flex-end;
+
+        .submit-button{
+          width: 100%;
+        }
+      }
+
+      .input-style{
+        width: 100%;
+      }
+
+      .mat-error {
+        font-size: 12px;
+      }
+    }
+  }
+
+}

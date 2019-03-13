@@ -1,0 +1,30 @@
+.filter-by-rating {
+  color: #7d6c6c;
+
+  .title {
+    align-self: center;
+  }
+
+  .rating-slider {
+    width: 80%;
+  }
+}
+
+.movies-list {
+  padding: 60px 10%;
+
+  .text-col {
+    margin: auto 0px;
+  }
+  .actions-col {
+    text-align: center;
+    margin: auto 0px;
+
+    .action {
+      line-height: 1;
+    }
+    .icon {
+      font-size: 20px;
+    }
+  }
+}

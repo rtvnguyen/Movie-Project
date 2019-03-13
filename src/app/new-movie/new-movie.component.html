@@ -1,0 +1,50 @@
+<div class="create-page">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item" aria-current="page">Add a Movie</li>
+    </ol>
+  </nav>
+  <div class="page-content">
+    <div class="row">
+      <div class="col-md-12">
+
+        <form class="create-form" [formGroup]="exampleForm" novalidate (ngSubmit)="onSubmit(exampleForm.value)">
+
+          <div class="form-group">
+            <mat-form-field class="input-style">
+              <input matInput placeholder="Name" class="form-control" formControlName="name">
+            </mat-form-field>
+            <ng-container *ngFor="let validation of validation_messages.name">
+              <mat-error *ngIf="exampleForm.get('name').hasError(validation.type) && (exampleForm.get('name').dirty || exampleForm.get('name').touched)">{{validation.message}}</mat-error>
+            </ng-container>
+          </div>
+
+          <div class="form-group">
+            <mat-form-field class="input-style">
+              <input matInput placeholder="Genre" class="form-control" formControlName="genre">
+            </mat-form-field>
+            <ng-container *ngFor="let validation of validation_messages.genre">
+              <mat-error *ngIf="exampleForm.get('genre').hasError(validation.type) && (exampleForm.get('genre').dirty || exampleForm.get('genre').touched)">{{validation.message}}</mat-error>
+            </ng-container>
+          </div>
+
+          <div class="form-group">
+            <mat-form-field class="input-style">
+              <input matInput type="number" min="0" max="100" placeholder="Rating (0-100)" class="form-control" formControlName="rating"> <!--when changing formcontrolname to rating, form lines disappear-->
+            </mat-form-field>
+            <ng-container *ngFor="let validation of validation_messages.rating">
+              <mat-error *ngIf="exampleForm.get('rating').hasError(validation.type) && (exampleForm.get('rating').dirty || exampleForm.get('rating').touched)">{{validation.message}}</mat-error>
+            </ng-container>
+          </div>
+
+          <div class="row submit-button-container">
+            <div class="col-md-2">
+              <button mat-raised-button class="submit-button" color="primary" type="submit" [disabled]="!exampleForm.valid">Add Movie</button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

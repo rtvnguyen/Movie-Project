@@ -1,0 +1,26 @@
+.page-container {
+  display: grid;
+  grid-template-columns: 200px auto; // auto shifts components into correct areas, pretty important
+  height: 100%; // height of app
+  padding: 0px; // like a border
+
+  .side-bar { // really just the background color dimensions, above is where you change the actual column dimensions
+    background: #cc0000;
+    width: 200px; 
+  
+
+    .nav-link { // home and icon sizes on sidebar
+      color: #FFF;
+      font-size: 20px;
+    }
+  }
+
+    .side-bar a:hover { // color of side bar hover
+      color: #68ddfa;
+    } 
+
+
+  .content-container { // dimension from top where app starts
+    margin-top: 50px;
+  }
+}
