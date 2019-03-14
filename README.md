@@ -4,7 +4,6 @@
 ## Install dependencies
 
 Run `npm install` 
-Run `npm install @angular/fire firebase --save`
 
 ## Development server
 
