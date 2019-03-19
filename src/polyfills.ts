@@ -27,7 +27,10 @@
  * Zone JS is required by default for Angular itself.
  */
 import 'zone.js/dist/zone';  // Included with Angular CLI.
-
+import 'hammerjs'; //  fixed slider!!!
+// import 'web-animations-js'; thought these 3 were needed for drop down menu
+// import 'core-js/es6/reflect';
+// import 'core-js/es7/reflect';
 
 
 /***************************************************************************************************

@@ -1,7 +1,7 @@
 <div class="row search-by-name">
   <div class="col-md-8 offset-md-2">
     <div class="input-group">
-      <input type="text" class="form-control" [(ngModel)]="searchValue" [ngModelOptions]="{standalone: true}" placeholder="Search by name..." (keyup)="searchByName()">
+      <input type="text" class="form-control" [(ngModel)]="searchValue" [ngModelOptions]="{standalone: true}" placeholder="Search by movie name..." (keyup)="searchByName()">
       <div class="input-group-append">
         <span class="input-group-text"><ion-icon class="icon" name="search"></ion-icon></span>
       </div>
@@ -22,15 +22,15 @@
           min="0"
           step="1"
           thumbLabel="true"
-          (ngModel)="ratingValue"
+          [ngModel]="ratingValue"
           (change)="rangeChange($event)">
-        </mat-slider>
+        </mat-slider> <!-- ngmodel was originally wrapped in parenthesis but i think that is wrong, ngmodel provies one way binding in this case but it is not really needed either since the filter is based on the $event. $event is mouse or key event being listened to-->
         <span> 100</span>
       </div>
     </div>
   </div>
   
-<div class="list-group movies-list">
+<div class="list-group movies-list"> <!-- movies-list is scss tag-->
   <div *ngFor="let item of items" class="list-group-item list-group-item-action flex-column align-items-start">
     <div class="row">
 
@@ -38,11 +38,13 @@
         <h5 class="mb-1">{{item.payload.doc.data().name}} ({{item.payload.doc.data().genre}})</h5> <!-- item.payload.doc.data items are firebase specific commands to retrieve values-->
         <small>Rating: {{item.payload.doc.data().rating}}</small>
       </div>
+
       <div class="col col-md-1 actions-col">
         <button class="btn btn-outline-primary action" (click)="viewDetails(item)" type="button">
           <ion-icon class="icon" name="arrow-round-forward"></ion-icon>
         </button>
       </div>
+      
     </div>
   </div>
 </div>

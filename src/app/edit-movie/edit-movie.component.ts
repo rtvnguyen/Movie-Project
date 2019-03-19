@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material';
 import { FirebaseService } from '../services/firebase.service';
 import { Router } from '@angular/router';
@@ -20,7 +20,7 @@ export class EditmovieComponent implements OnInit {
      { type: 'required', message: 'Name is required.' }
    ],
    'genre': [
-     { type: 'required', message: 'genre is required.' }
+     { type: 'required', message: 'Genre is required.' }
    ],
    'rating': [
      { type: 'required', message: 'Rating is required.' },

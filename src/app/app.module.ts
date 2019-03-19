@@ -1,6 +1,8 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser'; // adding hammer gesture config and gesture config AND importing hammerjs in polyfills.ts made mat slider draggable
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic'; //added to try and get drop down to work
 
 import { RouterModule } from '@angular/router';
 import { rootRouterConfig } from './app.routes';
@@ -16,8 +18,9 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { FirebaseService } from './services/firebase.service';
 
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatInputModule, MatSliderModule, MatDialogModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule, MatInputModule, MatSliderModule, MatDialogModule, GestureConfig, MatNativeDateModule, MatSelectModule } from '@angular/material';
+import { MovieRatingComponent } from './movie-rating/movie-rating.component'; //added matnativemodule to try and get dropdown to work
 
 
 @NgModule({
@@ -25,7 +28,8 @@ import {MatButtonModule, MatInputModule, MatSliderModule, MatDialogModule } from
     AppComponent,
     EditmovieComponent,
     NewmovieComponent,
-    HomeComponent
+    HomeComponent,
+    MovieRatingComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,12 +42,21 @@ import {MatButtonModule, MatInputModule, MatSliderModule, MatDialogModule } from
     MatButtonModule,
     MatInputModule,
     MatSliderModule,
-    MatDialogModule
+    MatDialogModule,
+    MatNativeDateModule,
+    MatSelectModule
   ],
-  providers: [FirebaseService, EditmovieResolver],
+  providers: [
+    FirebaseService, 
+    EditmovieResolver,
+    { provide: HAMMER_GESTURE_CONFIG, useClass: GestureConfig }, // adding hammer gesture config and gesture config AND importing hammerjs in polyfills.ts made mat slider draggable
+  ],
+
   bootstrap: [AppComponent],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ]
 })
 export class AppModule { }
+
+platformBrowserDynamic().bootstrapModule(AppModule); //maybe not needed?

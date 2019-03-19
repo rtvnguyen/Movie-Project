@@ -6,7 +6,7 @@
   </nav>
   <div class="page-content">
     <div class="row">
-      <div class="col col-md-12">
+      <div class="col-md-12">
 
         <form class="edit-form" [formGroup]="exampleForm" novalidate (ngSubmit)="onSubmit(exampleForm.value)">
 
@@ -21,7 +21,7 @@
 
           <div class="form-group">
             <mat-form-field class="input-style">
-              <input matInput placeholder="genre" class="form-control" formControlName="genre">
+              <input matInput placeholder="Genre" class="form-control" formControlName="genre">
             </mat-form-field>
             <ng-container *ngFor="let validation of validation_messages.genre">
               <mat-error *ngIf="exampleForm.get('genre').hasError(validation.type) && (exampleForm.get('genre').dirty || exampleForm.get('genre').touched)">{{validation.message}}</mat-error>

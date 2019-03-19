@@ -1,0 +1,20 @@
+<div class="col-md-9 offset-md-2 filter-by-rating">
+  <div class="row">
+    <div class="col-md-auto title">
+      <span>Plot:</span>
+    </div>
+    <div class="col">
+      <span>0 </span>
+      <mat-slider
+        class="rating-slider"
+        max="100"
+        min="0"
+        step="10"
+        thumbLabel="true"
+        [ngModel]="plotRatingValue">
+        <!-- (change)="rangeChange($event)" taken out of mat-slider -->
+      </mat-slider> <!-- ngmodel was originally wrapped in parenthesis but i think that is wrong, ngmodel provies one way binding in this case but it is not really needed either since the filter is based on the $event. $event is mouse or key event being listened to-->
+      <span> 100</span>
+    </div>
+  </div>
+</div>

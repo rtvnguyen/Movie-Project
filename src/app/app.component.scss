@@ -1,26 +1,27 @@
-.page-container {
-  display: grid;
-  grid-template-columns: 200px auto; // auto shifts components into correct areas, pretty important
-  height: 100%; // height of app
-  padding: 0px; // like a border
-
-  .side-bar { // really just the background color dimensions, above is where you change the actual column dimensions
+  .side-bar { // moved out of page container, allows the side bar to be fixed, see below overflow line
     background: #cc0000;
     width: 200px; 
-  
 
     .nav-link { // home and icon sizes on sidebar
       color: #FFF;
       font-size: 20px;
     }
   }
-
-    .side-bar a:hover { // color of side bar hover
+      
+  .side-bar a:hover { // color of side bar hover
       color: #68ddfa;
     } 
 
+  .page-container {
+  display: grid;
+  grid-template-columns: 200px auto; // auto shifts components into correct areas, pretty important
+  height: 100%; // height of app
+  padding: 0px; // like a border
 
   .content-container { // dimension from top where app starts
-    margin-top: 50px;
+    margin-top: 0px; // actually creates an unusable margin, even scroll bar doesnt show in this margin
+    padding: 20px 0px;
+    overflow: auto; // this is actually what made the side bar fixed*******************************
+    overflow-x: hidden; // removes horizontal scroll bar
   }
 }

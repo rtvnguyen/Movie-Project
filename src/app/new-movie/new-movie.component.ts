@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material'; 
 
 import { Router } from '@angular/router';
 import { FirebaseService } from '../services/firebase.service';
@@ -19,9 +19,9 @@ export class NewmovieComponent implements OnInit {
    'name': [
      { type: 'required', message: 'Name is required.' }
    ],
-   'genre': [
-     { type: 'required', message: 'Genre is required.' }
-   ],
+  // 'genre': [
+ //    { type: 'required', message: 'Genre is required.' }
+ //  ],
    'rating': [
      { type: 'required', message: 'Rating is required.' }
    ],
@@ -31,7 +31,7 @@ export class NewmovieComponent implements OnInit {
     private fb: FormBuilder,
     public dialog: MatDialog,
     private router: Router,
-    public firebaseService: FirebaseService
+    public firebaseService: FirebaseService,
   ) { }
 
   ngOnInit() {
