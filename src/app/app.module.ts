@@ -18,9 +18,8 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { FirebaseService } from './services/firebase.service';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatInputModule, MatSliderModule, MatDialogModule, GestureConfig, MatNativeDateModule, MatSelectModule } from '@angular/material';
-import { MovieRatingComponent } from './movie-rating/movie-rating.component'; //added matnativemodule to try and get dropdown to work
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // added to get mat-slider to work
+import { MatButtonModule, MatInputModule, MatSliderModule, MatDialogModule, GestureConfig, MatNativeDateModule, MatSelectModule } from '@angular/material'; //added matnativemodule to try and get dropdown to work
 
 
 @NgModule({
@@ -29,7 +28,6 @@ import { MovieRatingComponent } from './movie-rating/movie-rating.component'; //
     EditmovieComponent,
     NewmovieComponent,
     HomeComponent,
-    MovieRatingComponent,
   ],
   imports: [
     BrowserModule,

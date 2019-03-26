@@ -22,9 +22,9 @@
 
           <div class="form-group">
           <mat-form-field class="input-style">
-              <mat-select class="form-control" placeholder="Genre" formControlName="genre"> <!-- adding the class creates box-->
+              <mat-select class="form-control" placeholder="Genre" formControlName="genre" form> <!-- adding the class creates box-->
                 <mat-option value="Action">Action</mat-option>  
-                <mat-option value="Children">Children</mat-option> <!--could have created an array and used *ngFor in mat-option to display all genres-->
+                <mat-option value="Children" >Children</mat-option> <!--could have created an array and used *ngFor in mat-option to display all genres-->
                 <mat-option value="Comedy">Comedy</mat-option>
                 <mat-option value="Drama">Drama</mat-option>
                 <mat-option value="Horror">Horror</mat-option>
@@ -38,9 +38,115 @@
               </ng-container>
           </div>
 
+
+              <div class="col-xs-auto form-group">
+              <span>Movie Ratings: </span>
+              </div>
+
+          <div class="filter-by-rating">
+            <div class="row">
+              <div class="col-md-2 title">
+                <span>Plot</span>
+              </div>
+              <div class="col">
+                
+                <mat-slider
+                  class="rating-slider"
+                  max="100"
+                  min="0"
+                  step="1"
+                  thumbLabel="true"
+                  [(ngModel)]="plotrating"
+                  formControlName="plotrating">
+                </mat-slider> 
+                <span> 100</span>
+              </div>
+            </div>
+            <ng-container *ngFor="let validation of validation_messages.plotrating">
+              <mat-error *ngIf="exampleForm.get('plotrating').hasError(validation.type) && (exampleForm.get('plotrating').dirty || exampleForm.get('plotrating').touched)">{{validation.message}}</mat-error>
+            </ng-container>
+          </div>
+
+          <div class="filter-by-rating">
+              <div class="row">
+                <div class="col-md-2 title">
+                  <span>Production</span>
+                </div>
+                <div class="col">
+                  
+                  <mat-slider
+                    class="rating-slider"
+                    max="100"
+                    min="0"
+                    step="1"
+                    thumbLabel="true"
+                    [(ngModel)]="productionrating"
+                    formControlName="productionrating">
+                  </mat-slider> 
+                  <span> 100</span>
+                </div>
+              </div>
+              <ng-container *ngFor="let validation of validation_messages.rating">
+                <mat-error *ngIf="exampleForm.get('productionrating').hasError(validation.type) && (exampleForm.get('productionrating').dirty || exampleForm.get('productionrating').touched)">{{validation.message}}</mat-error>
+              </ng-container>
+            </div>
+
+            <div class="filter-by-rating">
+                <div class="row">
+                  <div class="col-md-2 title">
+                    <span>Cast</span>
+                  </div>
+                  <div class="col">
+                    
+                    <mat-slider
+                      class="rating-slider"
+                      max="100"
+                      min="0"
+                      step="1"
+                      thumbLabel="true"
+                      [(ngModel)]="castrating"
+                      formControlName="castrating">
+                    </mat-slider> 
+                    <span> 100</span>
+                  </div>
+                </div>
+                <ng-container *ngFor="let validation of validation_messages.castrating">
+                  <mat-error *ngIf="exampleForm.get('castrating').hasError(validation.type) && (exampleForm.get('castrating').dirty || exampleForm.get('castrating').touched)">{{validation.message}}</mat-error>
+                </ng-container>
+              </div>
+
+              <hr>
+
+              <div class="filter-by-rating">
+                <div class="row">
+                  <div class="col-md-2 title">
+                    Overall Rating <span style="visibility: hidden">{{averageRating(plotrating, productionrating, castrating)}}</span>
+                  </div>
+                  <div class="col">
+                    
+                    <mat-slider
+                      class="rating-slider"
+                      max="100"
+                      min="0"
+                      step="1"
+                      thumbLabel="true"
+                      [(ngModel)]="rating"
+                      formControlName="rating"
+                      (change)="averageRating($event)">
+                    </mat-slider> 
+                    <span> 100</span>
+                  </div>
+                </div>
+                <!-- <ng-container *ngFor="let validation of validation_messages.rating">
+                  <mat-error *ngIf="exampleForm.get('castrating').hasError(validation.type) && (exampleForm.get('castrating').dirty || exampleForm.get('castrating').touched)">{{validation.message}}</mat-error>
+                </ng-container> -->
+              </div>
+
+
+
           <!-- standard genre entry in regular form below -->
 
-    <!--  <div class="form-group">
+          <!--  <div class="form-group">
             <mat-form-field class="input-style">
               <input matInput placeholder="Genre" class="form-control" formControlName="genre">
             </mat-form-field>
@@ -49,17 +155,20 @@
             </ng-container>
           </div>  -->
 
-          <div class="form-group">
+          <!-- standard rating entry in regular form below -->
+
+          <!-- <div class="form-group">
             <mat-form-field class="input-style">
               <input matInput type="number" min="0" max="100" placeholder="Rating (0-100)" class="form-control" formControlName="rating"> 
             </mat-form-field>
             <ng-container *ngFor="let validation of validation_messages.rating">
               <mat-error *ngIf="exampleForm.get('rating').hasError(validation.type) && (exampleForm.get('rating').dirty || exampleForm.get('rating').touched)">{{validation.message}}</mat-error>
             </ng-container>
-          </div>
+          </div> -->
+
 
           <div class="row submit-button-container">
-            <div class="col-md-2">
+            <div class="col-md-auto">
               <button mat-raised-button class="submit-button" color="primary" type="submit" [disabled]="!exampleForm.valid">Add Movie</button>
             </div>
           </div>

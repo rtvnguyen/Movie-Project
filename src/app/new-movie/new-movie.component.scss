@@ -1,25 +1,24 @@
 .create-page {
 
-  padding: 20px 200px;
+  padding: 20px 250px;
 
 .breadcrumb {
   color: #8d8d8d;
   background-color: #cfe9f0;
 }
 
-  .page-content {
+.page-content {
     background-color: #FFF;
 
 
     .create-form {
-      padding: 20px;
-
+      padding: 2%;
 
       .submit-button-container {
         justify-content: flex-end;
 
         .submit-button{
-          width: 100%;
+          width: 300px;
       
         }
       }
@@ -38,6 +37,48 @@
         font-size: 12px;
       }
     }
+}
+
+.form-group {
+    color: #8d8d8d;
+}
+ 
+.filter-by-rating {
+    color: #7d6c6c;
+    white-space: nowrap;
+
+  .title {
+      color: #8d8d8d;
+      align-self: center;
+  }
+
+  .rating-slider {
+      width: 90%;
+  }
+
   }
 
 }
+
+::ng-deep {
+
+  .mat-slider-track-fill {
+    background-color: red !important;
+  }
+
+  .mat-slider-thumb-label {
+    transform: rotate(45deg) !important;
+    border-radius: 50% 50% 0 !important;
+    background-color: #e60707 !important;
+  }
+  
+  .mat-slider-thumb {
+    transform: scale(0) !important;
+  }
+  
+  .mat-slider-thumb-label-text {
+    opacity: 1 !important;
+  }
+
+}
+
